@@ -1,0 +1,12 @@
+C:\Users\201180111\source\repos\SuperSistema\Models\bin\Debug\Models.dll
+C:\Users\201180111\source\repos\SuperSistema\Models\bin\Debug\Models.pdb
+C:\Users\201180111\source\repos\SuperSistema\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\201180111\source\repos\SuperSistema\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\201180111\source\repos\SuperSistema\Models\obj\Debug\Models.dll
+C:\Users\201180111\source\repos\SuperSistema\Models\obj\Debug\Models.pdb
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\bin\Debug\Models.dll
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\bin\Debug\Models.pdb
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\obj\Debug\Models.dll
+C:\Users\Ablonzito\Desktop\SuperSistema\Models\obj\Debug\Models.pdb

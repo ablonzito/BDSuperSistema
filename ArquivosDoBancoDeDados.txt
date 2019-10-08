@@ -1,0 +1,12 @@
+CREATE DATABASE BDSuperSistema
+GO
+USE BDSuperSistema
+
+CREATE TABLE Produtos (
+	Codigo INT PRIMARY KEY IDENTITY,
+	Descricao varchar(255) NOT NULL,
+	ValorUnitario DECIMAL(18,2) NOT NULL,
+	DtCadastro DATETIME
+);
+
+SELECT * FROM Produtos
