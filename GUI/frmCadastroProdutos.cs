@@ -19,6 +19,14 @@ namespace GUI
             InitializeComponent();
         }
 
+        public void LimparCampos()
+        {
+            txt_codigo.Text = string.Empty;
+            txt_descricao.Text = string.Empty;
+            txt_valorUnitario.Text = string.Empty;
+            dtpDtCadastro.Value = DateTime.Now;
+        }
+
         private void Btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,6 +43,28 @@ namespace GUI
             pDal.InserirProduto(objProduto);
 
             MessageBox.Show("Produto Inserido Com Sucesso!!!");
+        }
+
+        private void Btn_buscar_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(txt_codigo.Text);
+
+            ProdutoDAL pDAL = new ProdutoDAL();
+            Produto objProduto = pDAL.BuscarProduto(codigo);
+
+            if (objProduto != null)
+            {
+                txt_descricao.Text = objProduto.Descricao;
+                txt_valorUnitario.Text = objProduto.ValorUnitario.ToString();
+                dtpDtCadastro.Value = objProduto.DtCadastro;
+            }
+            else
+            {
+                MessageBox.Show("Produto não foi encontrado!");
+                LimparCampos();
+            }
+
+            pDAL.BuscarProduto(codigo);
         }
     }
 }

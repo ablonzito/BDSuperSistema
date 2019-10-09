@@ -30,6 +30,6 @@ namespace GUI
             frmCadastroFilmes tela = new frmCadastroFilmes();
             tela.MdiParent = this;
             tela.Show();
-        }
+        }  
     }
 }

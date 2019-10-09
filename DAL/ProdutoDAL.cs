@@ -11,7 +11,7 @@ namespace DAL
     public class ProdutoDAL
     {
         //Conexão com o SqlServer ( dados de Login )
-        string connectionString = "Data Source=localhost;Initial Catalog=BDSuperSistema;User ID=**;Password=**";
+        string connectionString = "Data Source=localhost;Initial Catalog=BDSuperSistema;User ID=sa;Password=Federal@123";
         public void InserirProduto(Produto objProduto)
         {
            
@@ -76,6 +76,35 @@ namespace DAL
             conn.Close();
         }
 
-        
+        public Produto BuscarProduto(int codigo)
+        {
+            Produto p = null;
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            string sql = "SELECT * FROM Produtos WHERE Codigo = @c";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            //Passar parametro @c
+
+            cmd.Parameters.AddWithValue("@c", codigo);
+            // Ler os dados do banco
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //Verificar se no DataReader possui linhas (registros)
+            if(dr.HasRows && dr.Read())
+            {
+                //Instanciar obj produto
+                p = new Produto();
+                p.Codigo = codigo;
+                p.Descricao = dr["Descricao"].ToString();
+                p.ValorUnitario = Convert.ToDecimal(dr["ValorUnitario"]);
+                p.DtCadastro = Convert.ToDateTime(dr["DtCadastro"]);
+            }
+            //Nao esquecer de sempre fechar conexao com BD
+            conn.Close();
+            //Retornar produtos com os parametros inseridos
+            return p;
+        }
     }
 }
