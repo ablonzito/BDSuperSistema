@@ -38,6 +38,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txt_codigo = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
+            this.dgv_produtos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_produtos)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_descricao
@@ -126,12 +128,21 @@
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
+            // dgv_produtos
+            // 
+            this.dgv_produtos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_produtos.Location = new System.Drawing.Point(11, 157);
+            this.dgv_produtos.Name = "dgv_produtos";
+            this.dgv_produtos.Size = new System.Drawing.Size(402, 204);
+            this.dgv_produtos.TabIndex = 20;
+            // 
             // frmCadastroProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 179);
+            this.ClientSize = new System.Drawing.Size(418, 376);
             this.ControlBox = false;
+            this.Controls.Add(this.dgv_produtos);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.txt_codigo);
             this.Controls.Add(this.label1);
@@ -144,6 +155,7 @@
             this.Controls.Add(this.txt_descricao);
             this.Name = "frmCadastroProdutos";
             this.Text = "Cadastro de Produto";
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_produtos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_codigo;
         private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.DataGridView dgv_produtos;
     }
 }

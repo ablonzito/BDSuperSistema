@@ -14,7 +14,7 @@ namespace DAL
         string connectionString = "Data Source=localhost;Initial Catalog=BDSuperSistema;User ID=sa;Password=Federal@123";
         public void InserirProduto(Produto objProduto)
         {
-           
+
 
             //Instanciar um objeto do tipo SqlConnection (conexão)
             //Passar a string de conexão na contrução
@@ -92,7 +92,7 @@ namespace DAL
             SqlDataReader dr = cmd.ExecuteReader();
 
             //Verificar se no DataReader possui linhas (registros)
-            if(dr.HasRows && dr.Read())
+            if (dr.HasRows && dr.Read())
             {
                 //Instanciar obj produto
                 p = new Produto();
@@ -105,6 +105,53 @@ namespace DAL
             conn.Close();
             //Retornar produtos com os parametros inseridos
             return p;
+        }
+
+        public List<Produto> ListarProdutos()
+        {
+            //Instancio uma lista de objetos do tipo Produto
+            //Com inicialização (construtor)
+            List<Produto> listaProdutos = new List<Produto>();
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            conn.Open();
+
+            string sql = "SELECT * FROM Produtos";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            //Executar o comando ExecuteReader e jogar no intermediário
+            //SqlDataReader
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //Verificar se no resultado existem linhas
+            if (dr.HasRows)
+            {
+                //Criar uma variável do tipo Produto
+                Produto objProduto;
+                //Fazer um laço de repetição enquanto tiver linhas
+                //para serem lidas
+                //*Read() faz a leitura da próxima retornando "verdadeiro"
+                //quando não tem mais linhas retorna "falso"
+                while (dr.Read())
+                {
+                    //Importante instanciar dentro do laço (Para criar nova ref.
+                    //na memória
+                    objProduto = new Produto();
+                    objProduto.Codigo = Convert.ToInt32(dr["Codigo"]);
+                    objProduto.Descricao = dr["Descricao"].ToString();
+                    objProduto.ValorUnitario = Convert.ToDecimal(dr["ValorUnitario"]);
+                    objProduto.DtCadastro = Convert.ToDateTime(dr["DtCadastro"]);
+
+                    listaProdutos.Add(objProduto);
+                }
+            }
+
+            conn.Close();
+
+            //Retornar a lista preenchida
+            return listaProdutos;
         }
     }
 }

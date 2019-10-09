@@ -17,6 +17,7 @@ namespace GUI
         public frmCadastroProdutos()
         {
             InitializeComponent();
+            CarregarLista();
         }
 
         public void LimparCampos()
@@ -25,6 +26,7 @@ namespace GUI
             txt_descricao.Text = string.Empty;
             txt_valorUnitario.Text = string.Empty;
             dtpDtCadastro.Value = DateTime.Now;
+            
         }
 
         private void Btn_cancelar_Click(object sender, EventArgs e)
@@ -65,6 +67,15 @@ namespace GUI
             }
 
             pDAL.BuscarProduto(codigo);
+            CarregarLista();
+        }
+
+        public void CarregarLista()
+        {
+            ProdutoDAL p = new ProdutoDAL();
+
+            dgv_produtos.DataSource = p.ListarProdutos();
         }
     }
 }
+
